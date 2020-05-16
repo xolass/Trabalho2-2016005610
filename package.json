@@ -1,0 +1,20 @@
+{
+  "name": "crud-cliente",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "create-database": "node ./database"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "hbs": "^4.1.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}
