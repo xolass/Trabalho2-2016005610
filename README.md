@@ -21,7 +21,7 @@
 ```shell
 	cp .env.example .env
 ``` 
-- Abra o recém criado .env e edite o valor da variável DBNAME para o nome do banco a ser criado e mais tarde utilizado.
+- Abra o recém criado .env e edite o valor da variável DBNAME para o nome do banco a ser criado e mais tarde utilizado. (Lembrando que o nome não pode começar com um número)
 
 - Rode o script de criação de banco e tabelas
 ```shell

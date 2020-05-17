@@ -1,10 +1,9 @@
 const { conn, db, tables } = require('./index');
 
-const dbName = process.env.DBNAME;
-
 
 const createDatabase = () => new Promise((resolve, reject) => {
-  conn.query(`Create database ${dbName};`, (error, result) => {
+  console.log(process.env.DBNAME);
+  conn.query(`Create database ${process.env.DBNAME};`, (error, result) => {
     conn.end();
     if (error) return reject(error);
     return resolve(result);
@@ -15,13 +14,15 @@ const main = async () => {
   try {
     console.log('Criando Banco de Dados...');
     await createDatabase();
-    console.log('Banco de Dados criado');
+    console.log('Banco de Dados criado\n\n');
 
     return Promise.all(tables.map((table) => {
+      console.log(`Criando Tabela ${table.name}...`);
       return new Promise((resolve, reject) => {
         db().query(table.create, (err, results) => {
           if (err) reject();
           resolve(results);
+          console.log(`Tabela ${table.name} criada\n\n`);
         });
       });
     })).then(() => {

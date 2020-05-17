@@ -6,5 +6,6 @@ module.exports = {
       Nome varchar(150) NOT NULL,
       CPF char(11) NOT NULL,
       PRIMARY KEY (ID)
-    );`
+    );`,
+  name: 'Clientes'
 };
