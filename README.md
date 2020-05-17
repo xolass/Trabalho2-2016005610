@@ -8,19 +8,24 @@
 ```
 
 - Entre no projeto recém clonado
- ```shell
+```shell
 	cd Trabalho2-2016005610
 ```
-
 
 - Instale as dependências
 ```shell
 	npm i
 ```
 
+- Enquanto as dependências são instaladas, crie o arquivo de variáveis de ambiente
+```shell
+	cp .env.example .env
+``` 
+- Abra o recém criado .env e edite o valor da variável DBNAME para o nome do banco a ser criado e mais tarde utilizado.
+
 - Rode o script de criação de banco e tabelas
 ```shell
-	npm run-script create-database <Nome do banco(schema)>
+	npm run-script create-database
 ```
 
 - Inicie a aplicação
