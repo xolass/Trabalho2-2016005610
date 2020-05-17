@@ -1,1 +1,63 @@
-<div>asdfhsufghsxdfz</div>
+<div class="dashboard-container">
+    <h1>Dashboard Clientes</h1>
+    <div style="display:flex;justify-content:space-evenly">
+        <div style="margin:auto">
+            <form action="/dashboard" method="POST">
+                <h2>Criar</h2>
+                <input type="text" name="nome" class="form-control" placeholder="Seu nome" required autofocus>
+                <input type="cpf" name="cpf" class="form-control" placeholder="Seu CPF" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Criar</button>
+            </form>
+        </div>
+        <div style="margin:auto">
+            <form action="/dashboard/get" method="GET">
+                <h2>Consultar</h2>
+                <input type="cpf" name="cpf" class="form-control" placeholder="Seu CPF" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Consultar</button>
+            </form>
+        </div>
+        <div style="margin:auto">
+            <form action="/dashboard" method="POST">
+                <h2>Alterar</h2>
+                <input type="hidden" name="_method" value="put">
+                <input type="text" name="id" class="form-control" placeholder="Id do usuário a editar" required>
+                <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
+                <input type="cpf" name="cpf" class="form-control" placeholder="Seu CPF" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Alterar</button>
+            </form>
+        </div>
+        <div style="margin:auto">
+            <form action="/dashboard" method="POST">
+                <h2>Remover</h2>
+                <input type="hidden" name="_method" value="delete">
+                <input type="cpf" name="cpf" class="form-control" placeholder="CPF" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Remover</button>
+            </form>
+        </div>
+    </div>
+    <div style="display:flex;">
+
+        <form action="/dashboard/getAll" method="GET">
+            <button style="margin-top:20px;margin:auto;min-width: 200px;width:fit-content" class="btn btn-lg btn-primary btn-block" type="submit">Ver
+                Todos</button>
+        </form>
+
+        {{#if users}}
+
+        <table border="outline">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+            </tr>
+            {{#each users}}
+            <tr>
+                <td> {{ID}} </td>
+                <td> {{Nome}} </td>
+                <td> {{CPF}} </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
+    </div>
+</div>

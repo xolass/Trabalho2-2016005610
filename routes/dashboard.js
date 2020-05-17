@@ -6,8 +6,17 @@ const { update } = require('../controllers/users/update');
 const { remove } = require('../controllers/users/remove');
 
 
-router.get('/', (req, res) => {
+
+router.get('/', async (req, res) => {
+
+    res.render('dashboard', {
+        title: 'Dashboard',
+    });
+});
+
+router.get('/getAll', async (req, res) => {
     const users = await getAll();
+
     res.render('dashboard', {
         title: 'Dashboard',
         users,
@@ -15,32 +24,33 @@ router.get('/', (req, res) => {
 });
 
 
-
 router.post('/', async (req, res) => {
     const { nome, cpf } = req.body;
-    create(nome, cpf);
-    res.send('');
+    await create(nome, cpf);
+    res.redirect('/dashboard');
 });
 
-router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const user = await getOne(id);
+router.get('/get', async (req, res) => {
+    const { cpf } = req.query;
+    const user = await getOne(cpf);
 
-    res.json(user);
+    res.render('dashboard', {
+        title: 'Dashboard',
+        users: user,
+    });
 });
 
 
-router.put('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { nome, cpf } = req.body;
-    const users = await update(id, nome, cpf);
-    res.json(users);
+router.put('/', async (req, res) => {
+    const { id, nome, cpf } = req.body;
+    await update(id, nome, cpf);
+    res.redirect('/dashboard');
 });
 
-router.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    remove(id);
-    res.send('');
+router.delete('/', async (req, res) => {
+    const { cpf } = req.body;
+    await remove(cpf);
+    res.redirect('/dashboard');
 });
 
 module.exports = router;
