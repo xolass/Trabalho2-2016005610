@@ -1,8 +1,8 @@
-# CRUD Usuário
+# CRUD Clientes
 
 ### Nicolas Steck Salgado <br>2016005610
 
-- Clone o repositório 
+- Clone ou baixe o repositório 
 ```shell
 	git clone https://github.com/botinho141516/Trabalho2-2016005610.git
 ```
