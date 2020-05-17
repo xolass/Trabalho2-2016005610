@@ -9,7 +9,7 @@
 
 - Entre no projeto recém clonado
 ```shell
-	cd Trabalho2-2016005610
+	cd Trabalho2-2016005610-master
 ```
 
 - Instale as dependências
